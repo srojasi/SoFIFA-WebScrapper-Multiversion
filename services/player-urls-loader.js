@@ -3,7 +3,8 @@ const cheerio = require('cheerio');
 const fs = require('fs');
 
 const SOFIFA_BASE_URL = 'https://sofifa.com';
-const PLAYER_IDS_SOFIFA_URL = `https://sofifa.com/players?col=oa&sort=desc&offset=`;
+const SOFIFA_VERSION = `070001`;
+const PLAYER_IDS_SOFIFA_URL = `https://sofifa.com/players?r=${SOFIFA_VERSION}&set=true&col=oa&sort=desc&offset=`;
 const playerUrlsFullFile = './files/player-urls-full.csv';
 const playerUrlsTestFile = './files/player-urls-test.csv';
 
