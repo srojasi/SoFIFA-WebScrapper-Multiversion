@@ -1,8 +1,6 @@
-### EA FC 25 Players Data
-[![Node.js CI](https://github.com/prashantghimire/sofifa-web-scraper/actions/workflows/node.js.yml/badge.svg)](https://github.com/prashantghimire/sofifa-web-scraper/actions/workflows/node.js.yml)
+### Multiversion SoFIFA Players Data
 
 Collected from [sofifa.com](https://sofifa.com).
-#### You can [view demo data](./output/player-data-test.csv) and [download full players data](./output/player-data-full.csv) (Last Scan: 2024-07-08).
 Keep in mind that the above full players data won't always be up-to-date.
 
 If you would like to download the latest data, you can do so by cloning the repo and running the script locally. 
@@ -12,14 +10,15 @@ To run the project locally, follow the instructions below.
 Node (version `18.12.1`) and npm (version `9.3.1`) were used during development.
 
 ```
-git clone https://github.com/prashantghimire/sofifa-web-scraper
+git clone https://github.com/srojasi/SoFIFA-WebScrapper-Multiversion
 cd sofifa-web-scraper
 npm install
 
-# to download test players (useful for testing setup)
+# to download test urls and players (useful for testing setup)
+npm run download-urls-test
 npm run test
 
-# to download all the 18k+ players (takes ~2.5 hours)
+# to download all the 18k+ urls and players (takes ~2.5 hours)
 npm run download-urls
 npm run full
 ```
@@ -56,3 +55,9 @@ pd.read_csv('./player-data-full.csv', index_col=['player_id'])
 ```
 
 <img src="images/player_data.png"  alt="Basic"/>
+
+### Version
+
+To get players from different versions of FIFA, only change the constant `SOFIFA_VERSION` in the `player-urls-loader.js`.
+
+The supported versions is the ones defined by SoFIFA, given by the `r` parameter in the address bar of the SoFIFA webpage.
