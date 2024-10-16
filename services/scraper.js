@@ -10,11 +10,12 @@ const asyncWait = ms => new Promise(resolve => setTimeout(resolve, ms))
  */
 const getPageContent = async (url) => {
     let attempts = 5;
+    let response;
     while (attempts > 0) {
-        const response = await humanoid.get(url);
+        response = await humanoid.get(url);
         if (response.statusCode !== 200) {
             console.log(`retrying ... attempt=${attempts}`)
-            await asyncWait(1000);
+            await asyncWait(5273);
             attempts -= 1;
         } else {
             if (attempts < 5) {
@@ -25,7 +26,7 @@ const getPageContent = async (url) => {
             return response.body;
         }
     }
-    throw new Error(`Error reading page=${url}, statusCode=${response.statusCode}`);
+    throw new Error(`Error reading page=${url}, statusCode=${response?.statusCode}`);
 };
 
 module.exports = {
